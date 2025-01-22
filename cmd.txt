@@ -1,0 +1,110 @@
+    1  vi /etc/netplan/50-cloud-init.yaml 
+    2  ip a
+    3  vi /etc/netplan/50-cloud-init.yaml 
+    4  netplan apply 
+    5  ip a
+    6  'init 0
+    7  init 0
+    8  vi /etc/netplan/50-cloud-init.yaml 
+    9  netplan apply 
+   10  vi /etc/ssh/sshd_config
+   11  passwd 
+   12  systemctl restart sshd
+   13  systemctl restart ssh.service 
+   14  init 0
+   15  ip a
+   16  vi /etc/netplan/50-cloud-init.yaml 
+   17  vi install-k8s.sh
+   18  sh install-k8s.sh 
+   19  kubeadm init
+   20  mkdir -p $HOME/.kube
+   21  cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   22  kubectl get nodes
+   23  vi cni.sh
+   24  sh cni.sh 
+   25  cilium install --version 1.16.5
+   26  kubectl get pod -n kube-system
+   27  kubectl get pod -n kube-system -w
+   28  kubectl get pod -n kube-system 
+   29  kubectl get nodes
+   30  init 0
+   31  kubectl get pods
+   32  kubectl get nodes
+   33  ls -a
+   34  vi .kube/config 
+   35  cp /etc/kubernetes/admin.conf .kube/config 
+   36  kubectl get nodes
+   37  crictl ps
+   38  crictl ps -a
+   39  ls /etc/kubernetes/manifests/
+   40  crictl ps -a
+   41  ls /var/log/pods/
+   42  crictl ps -a
+   43  kubectl get nodes
+   44  crictl ps -a
+   45  kubectl get nodes
+   46  kubeadm reset 
+   47  free -h
+   48  vi /etc/fstab 
+   49  free -h
+   50  swapoff -a
+   51  free -h
+   52  crictl ps -a
+   53  systemctl restart kubelet.service 
+   54  crictl ps -a
+   55  kubectl get nodes
+   56  kubectl get pods
+   57  kubectl get pod
+   58  kubectl get po
+   59  ls -a
+   60  vi .bashrc 
+   61  source .bashrc 
+   62  kubectl run mypod --image nginx:latest --port 80
+   63  kubectl get po
+   64  kubectl describe po mypod 
+   65  kubectl get pod
+   66  kubectl logs mypod 
+   67  kubectl get pod
+   68  kubectl exec -it mypod -- ls
+   69  kubectl exec -it mypod -- cat /etc/passwd
+   70  kubectl exec -it mypod -- bash
+   71  kubectl get pod
+   72  ls
+   73  kubectl cp cni.sh mypod:/tmp/cni.sh
+   74  kubectl exec -it mypod -- bash
+   75  ls
+   76  kubectl cp mypod:/tmp/mango.txt .
+   77  ls
+   78  kubectl cp mypod:/tmp/mango.txt ./mango.txt
+   79  ls
+   80  cat mango.txt 
+   81  mkdir app
+   82  cd app/
+   83  kubectl get pods
+   84  kubectl delete pod mypod 
+   85  kubectl get pods
+   86  kubectl run mypod --image nginx:latest --port 80 --labels app=myapp --dry-run=client 
+   87  kubectl get pods
+   88  kubectl run mypod --image nginx:latest --port 80 --labels app=myapp --dry-run=client -o yaml
+   89  kubectl run mypod --image nginx:latest --port 80 --labels app=myapp --dry-run=server -o yaml
+   90  kubectl run mypod --image nginx:latest --port 80 --labels app=myapp --dry-run=client -o yaml
+   91  kubectl run mypod --image nginx:latest --port 80 --labels app=myapp --dry-run=client -o yaml > pod.yaml
+   92  vi pod.yaml 
+   93  kubectl create -f pod.yaml 
+   94  kubectl get pods
+   95  kubectl describe pod mypod 
+   96  kubectl get pods
+   97  kubectl get pods -w
+   98  kubectl get pods 
+   99  kubectl describe pod mypod 
+  100  kubectl get pods 
+  101  kubectl logs mypod -c con1
+  102  kubectl logs mypod -c con2
+  103  kubectl get pods 
+  104  kubectl exec -it mypod -c con1 -- bash
+  105  kubectl exec -it mypod -c con2 -- bash
+  106  kubectl get pods
+  107  kubectl describe pod mypod 
+  108  kubectl get pods -o wide
+  109  kubectl get pods --show-labels 
+  110  history > cmd.txt
