@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: con1
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+    resources:
+       requests:   # on creation of this container 
+         memory: "128Mi"
+         cpu: "150m" 
+       limits:
+         memory: "256Mi"
+         cpu: "500m"
+  - name: con2
+    image: tomcat:latest
+    ports:
+    - containerPort: 8080
