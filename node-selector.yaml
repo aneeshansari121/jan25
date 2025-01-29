@@ -4,10 +4,12 @@ metadata:
   name: mypod
   labels:
     app: myapp
-    env: dev
 spec:
   containers:
   - name: con1
     image: nginx:latest
     ports:
     - containerPort: 80
+  nodeSelector:
+    cpu: ryzen
+

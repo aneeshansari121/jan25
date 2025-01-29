@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mypod
+  name: mypodnodename
   labels:
     app: myapp
-    env: dev
 spec:
   containers:
   - name: con1
     image: nginx:latest
     ports:
     - containerPort: 80
+  nodeName: node3
