@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mydep
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: mydep
@@ -17,21 +17,22 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+        livenessProbe:
+           tcpSocket:
+             port: 80
+           initialDelaySeconds: 5
+           periodSeconds: 5
 
 ---
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
+apiVersion: v1
+kind: Service
 metadata:
-  creationTimestamp: null
-  name: mydep
+  name: mydep-svc
 spec:
-  maxReplicas: 8
-  minReplicas: 3
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: mydep
-  targetCPUUtilizationPercentage: 75
-status:
-  currentReplicas: 0
-  desiredReplicas: 0
+  selector:
+    app: mymydep
+  ports:
+  - port: 80
+    targetPort: 80
+
+            
