@@ -1,0 +1,7 @@
+Hello, thank you for using our application
+
+to access pods configma use following commands
+     kubectl get pods
+      kubectl get cm
+
+

@@ -1,0 +1,10 @@
+
+replica: 3
+
+app: 
+  con1: httpd:latest
+  port: 80
+
+ingress:
+  enabled: true
+ 
